@@ -7,9 +7,82 @@
     <title>Flex | Advanced CSS</title>
     <link rel="stylesheet" href="stylesheets/page-styling.css" />
     <style>
-      /* Styles the image on this page to be 40% of the width of the page. */
+      section {
+        /* 
+          This changes the container to become a Flexible
+          Box container.
+        */
+        display: -ms-flexbox;
+        display: -moz-box;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: flex;
+
+        /*
+          This makes it so that if the window gets too small,
+          then content will go to the next line. 
+        */
+        -ms-flex-wrap: wrap;
+        -webkit-flex-wrap: wrap;
+        flex-wrap: wrap;
+
+        /* 
+          flex-direction sets the direction that the flex
+          container goes in. Row is the default value,
+          so we do not need to set it.
+        */
+        /* 
+          -ms-flex-direction: row;
+          -moz-box-orient: vertical;
+          -moz-box-direction: normal;
+          -webkit-box-orient: vertical;
+          -webkit-box-direction: normal;
+          -webkit-flex-direction: row;
+          flex-direction: row; 
+        */
+
+        /* 
+          This aligns items in the opposite direction
+          of the flow of the flex container.
+
+          In this case, it vertically aligns items because
+          our flex container is set to flex-direction: row;
+        */
+        -ms-flex-align: center;
+        -moz-box-align: center;
+        -webkit-box-align: center;
+        -webkit-align-items: center;
+        align-items: center;
+
+        justify-content: center;
+      }
+
+      /* 
+        Styles the image on this page to be 40% of the width 
+        of the page and sets that the width cannot go lower than
+        400px.
+      */
       img {
         width: 40%;
+        min-width: 400px;
+
+        margin-right: 5%;
+      }
+
+      /* 
+        Styles the container with the text inside the flex
+        container to be displayed as an inline-block element,
+        sets the width to 50% of the width of the page,
+        adds spacing on the inside of the element of 5% of the
+        width of the page on the left side of the element, and
+        makes it so that the width of the text container cannot
+        go lower than 400px.
+      */
+      #flex-text {
+        display: inline-block;
+        width: 55%;
+
+        min-width: 400px;
       }
     </style>
   </head>

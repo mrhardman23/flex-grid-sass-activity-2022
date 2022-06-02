@@ -4,10 +4,15 @@
   cannot be used, Tahoma is used. Finally, if Verdana, Geneva, and Tahoma cannot
   be used, the default sans-serif font for the browser is used.
   This also styles every element to have a line height of 140% of the font size.
+  Finally, this styles all elements to not increase in size when the padding or
+  border of that element is changed.
 */
 * {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   line-height: 140%;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 /* This styles the body to not have any default margin or padding. */
@@ -27,7 +32,6 @@ nav {
   top: 0;
   left: 0;
   background-color: #000096;
-  padding: 1rem;
 }
 
 /* 
@@ -35,9 +39,41 @@ nav {
   bullet points, margin, or padding.
 */
 nav ul {
+  /* 
+    This changes the container to become a Flexible
+    Box container.
+  */
+  display: -ms-flexbox;
+  display: -moz-box;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+
+  /*
+    This makes it so that if the window gets too small,
+    then content will go to the next line. 
+  */
+  -ms-flex-wrap: wrap;
+  -webkit-flex-wrap: wrap;
+  flex-wrap: wrap;
+
+  /* 
+    This aligns the items in the flex container to
+    have equal space on the left and right side of the
+    container and then makes all items fit evenly inside
+    the remaining space.
+  */
+  -ms-flex-pack: distribute;
+  -moz-box-pack: justify;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-around;
+  justify-content: space-around;
+
   list-style: none;
   margin: 0;
   padding: 0;
+
+  width: 100%;
 }
 
 /* 
@@ -61,7 +97,7 @@ nav ul li {
 nav ul li a {
   display: inline-block;
 
-  padding: 0.2rem 1rem;
+  padding: 1.2rem 2rem;
 
   color: ghostwhite;
   text-decoration: none;
