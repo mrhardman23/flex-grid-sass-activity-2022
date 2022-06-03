@@ -53,8 +53,6 @@
         -webkit-box-align: center;
         -webkit-align-items: center;
         align-items: center;
-
-        justify-content: center;
       }
 
       /* 
@@ -63,8 +61,39 @@
         400px.
       */
       img {
-        width: 40%;
+        max-width: 40%;
         min-width: 400px;
+        /*
+          This styles the img in the flex container to
+          be 1/3 of the flex container's width because
+          the text is set to 2/3 of the flex container's width.
+        */
+        /* -ms-flex-positive: 1;
+        -moz-box-flex: 1;
+        -webkit-box-flex: 1;
+        -webkit-flex-grow: 1;
+        flex-grow: 1; */
+
+        /* 
+          This styles the img to not have a default size
+          in the flex container.
+        */
+        /* -ms-flex-preferred-size: 0;
+        -webkit-flex-basis: 0;
+        flex-basis: 0; */
+
+        /* 
+          The flex property is a shorthand that combines
+          flex-grow, flex-shrink, and flex-basis. This sets
+          the item to grow at a rate of 1/3, shrink at the
+          same rate as the text container, and have no initial
+          size.
+        */
+        -ms-flex: 1 1 0px;
+        -moz-box-flex: 1;
+        -webkit-box-flex: 1;
+        -webkit-flex: 1 1 0;
+        flex: 1 1 0;
 
         margin-right: 5%;
       }
@@ -80,7 +109,39 @@
       */
       #flex-text {
         display: inline-block;
-        width: 55%;
+        /* width: 55%; */
+
+        /*
+          This styles the text container in the flex container to
+          be 2/3 of the flex container's width because
+          the text is set to 1/3 of the flex container's width.
+        */
+        /* -ms-flex-positive: 2;
+        -moz-box-flex: 2;
+        -webkit-box-flex: 2;
+        -webkit-flex-grow: 2;
+        flex-grow: 2; */
+
+        /* 
+          This styles the text container to not have a default size
+          in the flex container.
+        */
+        /* -ms-flex-preferred-size: 0;
+        -webkit-flex-basis: 0;
+        flex-basis: 0; */
+
+        /* 
+          The flex property is a shorthand that combines
+          flex-grow, flex-shrink, and flex-basis. This sets
+          the item to grow at a rate of 2/3, shrink at the
+          same rate as the text container, and have no initial
+          size.
+        */
+        -ms-flex: 2 1 0px;
+        -moz-box-flex: 2;
+        -webkit-box-flex: 2;
+        -webkit-flex: 2 1 0;
+        flex: 2 1 0;
 
         min-width: 400px;
       }
