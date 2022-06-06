@@ -6,6 +6,83 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Photo Grid | Advanced CSS</title>
     <link rel="stylesheet" href="stylesheets/page-styling.css" />
+    <style>
+      section {
+        display: -ms-grid;
+        display: grid;
+
+        /*
+          These two properties define the rows and columns
+          of our CSS Grid. We use the repeat function to 
+          repeat the same measurement for each row and the
+          same measurement for each column.
+
+          For rows, we repeat 1 equal fraction of the height of
+          the container four times to create four rows.
+
+          For columns, we repeat 1 equal fraction of the width of
+          the container three times to create three columns.
+        */
+        /* -ms-grid-rows: repeat(4, 1fr);
+        grid-template-rows: repeat(4, 1fr);
+
+        -ms-grid-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(3, 1fr); */
+
+        /*
+          These two properties define the rows and columns
+          of our CSS Grid. We use the repeat function to 
+          repeat the same measurement for each row and the
+          same measurement for each column.
+
+          The auto-fill value allows us to create as many
+          rows or columns that we can in the space provided
+          by the grid container. The auto-fill value does not
+          collapse new columns and will preserve the space
+          created by new columns.
+        */
+        /* -ms-grid-rows: repeat(auto-fill, 300px);
+        grid-template-rows: repeat(auto-fill, 300px);
+
+        -ms-grid-columns: repeat(auto-fill, 400px);
+        grid-template-columns: repeat(auto-fill, 400px); */
+
+        /* 
+          These two properties define the rows and columns
+          of our CSS Grid. We use the repeat function to 
+          repeat the same measurement for each row and the
+          same measurement for each column.
+
+          The auto-fit value allows us to create as many
+          rows or columns that we can in the space provided
+          by the grid container. The auto-fit value will
+          collapse new columns and will resize existing columns
+          to fill the entire space because of the minmax function.
+          
+          The minmax function states that the minimum height of the
+          rows is 300px and the maximum space is an equal fraction of
+          the total height of the container. 
+          
+          The other minmax function states that the minimum width of the
+          columns is 400px and the maximum spaces is an equal fraction
+          of the total width of the container.
+        */
+        -ms-grid-rows: repeat(auto-fit, minmax(300px, 1fr));
+        grid-template-rows: repeat(auto-fit, minmax(300px, 1fr));
+
+        -ms-grid-columns: repeat(auto-fit, minmax(300px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+
+        /*
+          This property adds 10px of space between grid items. 
+        */
+        gap: 10px;
+      }
+
+      img {
+        width: 100%;
+      }
+    </style>
   </head>
   <body>
     <nav>
@@ -26,18 +103,19 @@
     <main>
       <h2>CSS Grid Photo Gallery</h2>
       <section>
-        <img />
-        <img />
-        <img />
-        <img />
-        <img />
-        <img />
-        <img />
-        <img />
-        <img />
-        <img />
-        <img />
-        <img />
+        <!-- Alt text to be added later. -->
+        <img src="images/top-view-mobo.jpg"/>
+        <img src="images/computer-repair.jpg"/>
+        <img src="images/part-recycle-pile.jpg"/>
+        <img src="images/psu.jpg"/>
+        <img src="images/intel-core.jpg"/>
+        <img src="images/storage.jpg"/>
+        <img src="images/motherboard-cords.jpg"/>
+        <img src="images/motherboard-boxes.jpg"/>
+        <img src="images/white-case.jpg"/>
+        <img src="images/RAM.jpg"/>
+        <img src="images/code.jpg"/>
+        <img src="images/asus_mobo.jpg"/>
       </section>
     </main>
   </body>
