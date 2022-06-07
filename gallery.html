@@ -60,18 +60,24 @@
           to fill the entire space because of the minmax function.
           
           The minmax function states that the minimum height of the
-          rows is 300px and the maximum space is an equal fraction of
+          rows is 450px and the maximum space is an equal fraction of
           the total height of the container. 
           
           The other minmax function states that the minimum width of the
-          columns is 400px and the maximum spaces is an equal fraction
+          columns is 800px and the maximum spaces is an equal fraction
           of the total width of the container.
         */
-        -ms-grid-rows: repeat(4, minmax(300px, 1fr));
-        grid-template-rows: repeat(4, minmax(300px, 1fr));
+        /* -ms-grid-rows: repeat(auto-fit, minmax(450px, 1fr));
+        grid-template-rows: repeat(auto-fit, minmax(450px, 1fr));
 
-        -ms-grid-columns: repeat(3, minmax(300px, 1fr));
-        grid-template-columns: repeat(3, minmax(400px, 1fr));
+        -ms-grid-columns: repeat(auto-fit, minmax(800px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(800, 1fr)); */
+
+        -ms-grid-rows: repeat(auto-fit, 1fr);
+        grid-template-rows: repeat(auto-fit, 1fr);
+
+        -ms-grid-columns: repeat(auto-fit, 1fr);
+        grid-template-columns: repeat(auto-fit, 1fr);
 
         /*
           This property allows me to define specific areas in my
@@ -83,11 +89,6 @@
           Then, I can style specific elements on my page to fall within
           those grid areas lower in my styling.
         */
-        /* grid-template-areas:
-          "image5 image4 image4"
-          "image11 image4 image4"
-          "image7 image7 image10"
-          "image8 image2 image9"; */
 
         /*
           The below could be helpful for defining functional
@@ -104,29 +105,22 @@
           This property adds 10px of space between grid items. 
         */
         gap: 10px;
+
+        align-items: center;
       }
 
       img {
         width: 100%;
+        outline: 2px solid black;
       }
 
-      /* #image3 { */
-        /*
-          This styles the ID with image3 to start at the first
-          row line and the second column line. The ID of image3
-          then stops at row line 3 and column line 4.
-        */
-        /* grid-area: 1 / 2 / 3 / 4;
+      .sixteen-by-eighteen {
+        grid-area: auto / auto / span 2 / span 1;
       }
 
-      #image4 { */
-        /*
-          This styles the ID with image3 to start at the first
-          row line and the second column line. The ID of image3
-          then stops at row line 3 and column line 4.
-        */
-        /* grid-area: 3 / 1 / span 2 / span 2;
-      } */
+      .thirty-two-by-eighteen {
+        grid-area: auto / auto / span 2 / span 2;
+      }
 
       /*
         All of the styling below relates to placing specific elements
@@ -134,16 +128,28 @@
         setting the grid-area property to a specific name, those images
         will be places in the corresponding named area.
       */
-      /* #image2 {
+      /* #image1 {
+        grid-area: image1;
+      }
+
+      #image2 {
         grid-area: image2;
+      }
+
+      #image3 {
+        grid-area: image3;
+      }
+
+      #image4 {
+        grid-area: image4;
       }
 
       #image5 {
         grid-area: image5;
       }
 
-      #image4 {
-        grid-area: image4;
+      #image6 {
+        grid-area: image6;
       }
 
       #image7 {
@@ -164,6 +170,10 @@
 
       #image11 {
         grid-area: image11;
+      }
+
+      #image12 {
+        grid-area: image12
       } */
     </style>
   </head>
@@ -188,68 +198,76 @@
       <section>
         <!-- Alt text to be added later. -->
         <img 
-          src="images/top-view-mobo.jpg" 
-          alt="A view from above on an Asus motherboard."
+          src="images/blue-asus-mobo.jpg" 
+          alt=""
           id="image1"
+          class="sixteen-by-nine"
         />
         <img 
-          src="images/computer-repair.jpg" 
-          alt="An image of a person writing notes in a repair journal as 
-            they work on fixing a PC and laptop. They have pulled apart the
-            laptop to view the motherboard and are making notes about the
-            laptop's motherboard."
+          src="images/hard-drives.jpg" 
+          alt=""
           id="image2"
+          class="sixteen-by-nine"
         />
         <img 
-          src="images/part-recycle-pile.jpg"
-          alt="A pile of old RAM with a singular CPU on top of the pile."
+          src="images/motherboard.jpg"
+          alt=""
           id="image3"
+          class="sixteen-by-nine"
         />
         <img 
-          src="images/psu.jpg"
-          alt="An image of a Corsair HX850i power supply."
+          src="images/gaming-mouse.jpg"
+          alt=""
           id="image4"
+          class="sixteen-by-eighteen"
         />
         <img 
-          src="images/intel-core.jpg"
-          alt="An image of green lines intersecting underneath a 
-            rectangular panel that says Intel Core."
-            id="image5"
+          src="images/power-supply.png"
+          alt=""
+          id="image5"
+          class="sixteen-by-nine"
         />
         <img 
-          src="images/storage.jpg"
+          src="images/ram.jpg"
           alt=""
           id="image6"
+          class="sixteen-by-nine"
         />
         <img 
-          src="images/motherboard-cords.jpg"
+          src="images/pc-case.jpg"
           alt=""
           id="image7"
+          class="sixteen-by-nine"
         />
         <img 
-          src="images/motherboard-boxes.jpg"
+          src="images/razer-rgb-lighting.jpg"
           alt=""
           id="image8"
+          class="sixteen-by-nine"
         />
         <img 
-          src="images/white-case.jpg"
+          src="images/woman-at-computer.jpg"
           alt=""
           id="image9"
+          class="sixteen-by-nine"
         />
         <img 
-          src="images/RAM.jpg"
+          src="images/rgb-cases.jpg"
           alt=""
           id="image10"
+          class="thirty-two-by-eighteen"
         />
         <img 
-          src="images/code.jpg"
+          src="images/m2-ssd.png"
           alt=""
           id="image11"
+          class="sixteen-by-nine"
         />
         <img 
-          src="images/asus_mobo.jpg"
+          src="images/placing-cpu.jpg"
           alt=""
           id="image12"
+          class="sixteen-by-nine"
         />
       </section>
     </main>
