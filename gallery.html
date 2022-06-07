@@ -67,11 +67,38 @@
           columns is 400px and the maximum spaces is an equal fraction
           of the total width of the container.
         */
-        -ms-grid-rows: repeat(auto-fit, minmax(300px, 1fr));
-        grid-template-rows: repeat(auto-fit, minmax(300px, 1fr));
+        -ms-grid-rows: repeat(4, minmax(300px, 1fr));
+        grid-template-rows: repeat(4, minmax(300px, 1fr));
 
-        -ms-grid-columns: repeat(auto-fit, minmax(300px, 1fr));
-        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+        -ms-grid-columns: repeat(3, minmax(300px, 1fr));
+        grid-template-columns: repeat(3, minmax(400px, 1fr));
+
+        /*
+          This property allows me to define specific areas in my
+          grid to place my grid items in.
+
+          It allows me to define four rows (i.e. four lines of entries)
+          and three columns (i.e. three values inside each line of entires).
+
+          Then, I can style specific elements on my page to fall within
+          those grid areas lower in my styling.
+        */
+        /* grid-template-areas:
+          "image5 image4 image4"
+          "image11 image4 image4"
+          "image7 image7 image10"
+          "image8 image2 image9"; */
+
+        /*
+          The below could be helpful for defining functional
+          areas in your website with the help of CSS Grid.
+          grid-template-areas:
+            "header header header header"
+            "article article section1 section2"
+            "article article image1 image2"
+            "article article image-text1 image-text2"
+            "footer footer footer footer";
+        */
 
         /*
           This property adds 10px of space between grid items. 
@@ -82,6 +109,62 @@
       img {
         width: 100%;
       }
+
+      /* #image3 { */
+        /*
+          This styles the ID with image3 to start at the first
+          row line and the second column line. The ID of image3
+          then stops at row line 3 and column line 4.
+        */
+        /* grid-area: 1 / 2 / 3 / 4;
+      }
+
+      #image4 { */
+        /*
+          This styles the ID with image3 to start at the first
+          row line and the second column line. The ID of image3
+          then stops at row line 3 and column line 4.
+        */
+        /* grid-area: 3 / 1 / span 2 / span 2;
+      } */
+
+      /*
+        All of the styling below relates to placing specific elements
+        inside the grid areas defined inside the grid container. By
+        setting the grid-area property to a specific name, those images
+        will be places in the corresponding named area.
+      */
+      /* #image2 {
+        grid-area: image2;
+      }
+
+      #image5 {
+        grid-area: image5;
+      }
+
+      #image4 {
+        grid-area: image4;
+      }
+
+      #image7 {
+        grid-area: image7;
+      }
+
+      #image8 {
+        grid-area: image8;
+      }
+
+      #image9 {
+        grid-area: image9;
+      }
+
+      #image10 {
+        grid-area: image10;
+      }
+
+      #image11 {
+        grid-area: image11;
+      } */
     </style>
   </head>
   <body>
@@ -104,18 +187,70 @@
       <h2>CSS Grid Photo Gallery</h2>
       <section>
         <!-- Alt text to be added later. -->
-        <img src="images/top-view-mobo.jpg"/>
-        <img src="images/computer-repair.jpg"/>
-        <img src="images/part-recycle-pile.jpg"/>
-        <img src="images/psu.jpg"/>
-        <img src="images/intel-core.jpg"/>
-        <img src="images/storage.jpg"/>
-        <img src="images/motherboard-cords.jpg"/>
-        <img src="images/motherboard-boxes.jpg"/>
-        <img src="images/white-case.jpg"/>
-        <img src="images/RAM.jpg"/>
-        <img src="images/code.jpg"/>
-        <img src="images/asus_mobo.jpg"/>
+        <img 
+          src="images/top-view-mobo.jpg" 
+          alt="A view from above on an Asus motherboard."
+          id="image1"
+        />
+        <img 
+          src="images/computer-repair.jpg" 
+          alt="An image of a person writing notes in a repair journal as 
+            they work on fixing a PC and laptop. They have pulled apart the
+            laptop to view the motherboard and are making notes about the
+            laptop's motherboard."
+          id="image2"
+        />
+        <img 
+          src="images/part-recycle-pile.jpg"
+          alt="A pile of old RAM with a singular CPU on top of the pile."
+          id="image3"
+        />
+        <img 
+          src="images/psu.jpg"
+          alt="An image of a Corsair HX850i power supply."
+          id="image4"
+        />
+        <img 
+          src="images/intel-core.jpg"
+          alt="An image of green lines intersecting underneath a 
+            rectangular panel that says Intel Core."
+            id="image5"
+        />
+        <img 
+          src="images/storage.jpg"
+          alt=""
+          id="image6"
+        />
+        <img 
+          src="images/motherboard-cords.jpg"
+          alt=""
+          id="image7"
+        />
+        <img 
+          src="images/motherboard-boxes.jpg"
+          alt=""
+          id="image8"
+        />
+        <img 
+          src="images/white-case.jpg"
+          alt=""
+          id="image9"
+        />
+        <img 
+          src="images/RAM.jpg"
+          alt=""
+          id="image10"
+        />
+        <img 
+          src="images/code.jpg"
+          alt=""
+          id="image11"
+        />
+        <img 
+          src="images/asus_mobo.jpg"
+          alt=""
+          id="image12"
+        />
       </section>
     </main>
   </body>

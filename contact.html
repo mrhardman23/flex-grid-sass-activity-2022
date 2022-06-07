@@ -6,6 +6,77 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Contact Grid | Advanced CSS</title>
     <link rel="stylesheet" href="stylesheets/page-styling.css" />
+    <style>
+      /*
+        This defines the form as a CSS Grid container with two columns,
+        one for form labels and the other for text-based inputs.
+        It also creates a gap of 8% around grid items. 
+      */
+      form {
+        display: -ms-grid;
+        display: grid;
+
+        -ms-grid-columns: [form-labels] auto [form-text-inputs] 1fr;
+        grid-template-columns: [form-labels] auto [form-text-inputs] 1fr;
+
+        gap: 8%;
+      }
+      
+      /*
+        This styles the label to fill the column that we defined with
+        a name of form-labels. 
+      */
+      label {
+        grid-column: form-labels;
+      }
+
+      /*
+        This styles the input tags to fill the column that we defined with
+        a name of form-text-inputs. 
+      */
+      input {
+        grid-column: form-text-inputs;
+      }
+
+      /*
+        This styles the textarea tag to fill the column that we defined with
+        a name of form-text-inputs. 
+      */
+      textarea {
+        grid-column: form-text-inputs;
+      }
+
+      /* 
+        This styles the submit button to go across both columns of the grid.
+      */
+      input[type=submit] {
+        grid-column: 1 / span 2;
+      }
+
+      /* 
+        This is a media query that states we should change the styling
+        of the page when the browser window's width is 700px or less.
+      */
+      @media all and (max-width: 800px){
+        /*
+          On a smaller screen, change the form grid to have only 1 column
+          and change the gap around the grid items to be 3% instead of
+          8%.
+        */
+        form {
+          grid-template-columns: 1fr;
+
+          gap: 3%;
+        }
+
+        /* 
+          This styles all labels, inputs, and textareas to go across only 1 column.
+        */
+        label, input, textarea, input[type=input] {
+          grid-column: 1 / span 1;
+        }
+      }
+    </style>
   </head>
   <body>
     <nav>
@@ -63,7 +134,7 @@
           required
         />
         <label for="message">Please Enter Your Message Below:</label>
-        <textarea id="message" rows="10" cols="50"></textarea>
+        <textarea id="message" rows="15" cols="50"></textarea>
         <input type="submit" value="Send Us Your Message!" />
       </form>
     </main>
