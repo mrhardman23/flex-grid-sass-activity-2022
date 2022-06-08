@@ -19,22 +19,41 @@
         -ms-grid-columns: [form-labels] auto [form-text-inputs] 1fr;
         grid-template-columns: [form-labels] auto [form-text-inputs] 1fr;
 
-        gap: 8%;
+        row-gap: 8%;
+        column-gap: 10px;
+
+        /* 
+          Justify Items allows us to horizontally align the grid items
+          inside their columns.
+        */
+        justify-items: end;
+
+        /* 
+          Align Items allows us to vertically align the grid items
+          inside their rows.
+        */
+        align-items: center;
       }
-      
+
       /*
         This styles the label to fill the column that we defined with
         a name of form-labels. 
       */
       label {
+        font-weight: bold;
         grid-column: form-labels;
       }
-
+      
+      /* .required {
+        font-style: italic;
+        color: darkred;
+      } */
       /*
         This styles the input tags to fill the column that we defined with
         a name of form-text-inputs. 
       */
       input {
+        width: 100%;
         grid-column: form-text-inputs;
       }
 
@@ -43,13 +62,17 @@
         a name of form-text-inputs. 
       */
       textarea {
+        width: 100%;
+        height: 150px;
         grid-column: form-text-inputs;
+        resize: none;
       }
 
       /* 
         This styles the submit button to go across both columns of the grid.
       */
-      input[type=submit] {
+      input[type="submit"] {
+        width: 100%;
         grid-column: 1 / span 2;
       }
 
@@ -57,7 +80,7 @@
         This is a media query that states we should change the styling
         of the page when the browser window's width is 700px or less.
       */
-      @media all and (max-width: 800px){
+      @media all and (max-width: 800px) {
         /*
           On a smaller screen, change the form grid to have only 1 column
           and change the gap around the grid items to be 3% instead of
@@ -66,13 +89,19 @@
         form {
           grid-template-columns: 1fr;
 
-          gap: 3%;
+          justify-items: stretch;
+
+          row-gap: 3%;
+          column-gap: 0;
         }
 
         /* 
           This styles all labels, inputs, and textareas to go across only 1 column.
         */
-        label, input, textarea, input[type=input] {
+        label,
+        input,
+        textarea,
+        input[type="input"] {
           grid-column: 1 / span 1;
         }
       }
@@ -102,7 +131,10 @@
         only for a school project.
       </p>
       <form method="get" action="javascript:location.reload();">
-        <label for="name">Full Name (First and Last) [required]:</label>
+        <label for="name">
+          Full Name (First and Last) 
+          <span class="required">[required]</span>:
+        </label>
         <input
           type="text"
           name="fullName"
@@ -111,9 +143,10 @@
           maxlength="50"
           required
         />
-        <label for="email"
-          >Email Address (i.e. email@domain.com) [required]:</label
-        >
+        <label for="email">
+          Email Address (i.e. email@domain.com) 
+          <span class="required">[required]</span>:
+        </label>
         <input
           type="email"
           name="emailAddress"
@@ -122,9 +155,10 @@
           maxlength="50"
           required
         />
-        <label for="phone"
-          >Phone Number (i.e. 1-888-867-5309) [required]:</label
-        >
+        <label for="phone">
+          Phone Number (i.e. 1-888-867-5309) 
+          <span class="required">[required]</span>:
+        </label>
         <input
           type="tel"
           name="phoneNum"
@@ -133,8 +167,11 @@
           maxlength="16"
           required
         />
-        <label for="message">Please Enter Your Message Below:</label>
-        <textarea id="message" rows="15" cols="50"></textarea>
+        <label for="message">
+          Please Enter Your Message Below 
+          <span class="required">[required]</span>:
+        </label>
+        <textarea id="message" required></textarea>
         <input type="submit" value="Send Us Your Message!" />
       </form>
     </main>

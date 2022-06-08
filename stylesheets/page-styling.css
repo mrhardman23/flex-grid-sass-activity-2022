@@ -73,7 +73,7 @@ nav ul {
   margin: 0;
   padding: 0;
 
-  width: 100%;
+  width: 100vw;
 }
 
 /* 
@@ -148,7 +148,7 @@ nav ul li a:visited {
   sections.
 */
 header, main {
-  margin: 1rem 2.5%;
+  margin: 1rem 2.5vw;
 }
 
 /* This styles the heading in the header to be center aligned. */

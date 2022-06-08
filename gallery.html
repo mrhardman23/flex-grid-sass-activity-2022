@@ -11,6 +11,40 @@
         display: -ms-grid;
         display: grid;
 
+        /* 
+          This allows me to set the width of the grid container to just
+          be wide enough to fit the content of the grid on smaller screens.
+        */
+        width: fit-content;
+
+        /* 
+          This allows me to center the grid container inside the browser
+          on smaller screens.
+        */
+        margin: 0 auto;
+
+        /* 
+          This defines that there will be one column that is 1 fraction
+          of the available space for all columns. Since there is only
+          one column, it will take up all available space.
+        */
+        -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+
+        /*
+          This property adds 10px of space between grid items. 
+        */
+        gap: 10px;
+
+        /* This property horizontally aligns grid items in the center of the column. */
+        justify-items: center;
+
+        /* 
+          NOTE: I do not specify an amount of rows so that the grid can
+          figure out how many rows it needs automatically. Otherwise,
+          it causes issues with placing images inside the grid.
+        */
+
         /*
           These two properties define the rows and columns
           of our CSS Grid. We use the repeat function to 
@@ -67,17 +101,15 @@
           columns is 800px and the maximum spaces is an equal fraction
           of the total width of the container.
         */
+
         /* -ms-grid-rows: repeat(auto-fit, minmax(450px, 1fr));
         grid-template-rows: repeat(auto-fit, minmax(450px, 1fr));
 
         -ms-grid-columns: repeat(auto-fit, minmax(800px, 1fr));
         grid-template-columns: repeat(auto-fit, minmax(800, 1fr)); */
 
-        -ms-grid-rows: repeat(auto-fit, 1fr);
-        grid-template-rows: repeat(auto-fit, 1fr);
-
-        -ms-grid-columns: repeat(auto-fit, 1fr);
-        grid-template-columns: repeat(auto-fit, 1fr);
+        /* -ms-grid-rows: repeat(auto-fit, minmax(320px, 1fr));
+        grid-template-rows: repeat(auto-fit, minmax(320px, 1fr)); */
 
         /*
           This property allows me to define specific areas in my
@@ -100,26 +132,34 @@
             "article article image-text1 image-text2"
             "footer footer footer footer";
         */
-
-        /*
-          This property adds 10px of space between grid items. 
-        */
-        gap: 10px;
-
-        align-items: center;
       }
 
+      /* 
+        This defines that the width of the image should be 100% of the container,
+        but states that the width of the image must be between 256 and 512 px and the
+        height is between 144 and 288 px for small screens.
+      */
       img {
         width: 100%;
         outline: 2px solid black;
+        min-width: 256px;
+        max-width: 512px;
+        min-height: 144px;
+        max-height: 288px;
       }
 
+      /* 
+        This defines that the width of a 16x18 image should be 100% of the container,
+        but states that the width of the image must be between 256 and 512 px and the
+        height is between 288 and 576 px for small screens.
+      */
       .sixteen-by-eighteen {
+        padding: 5px 0;
         grid-area: auto / auto / span 2 / span 1;
-      }
-
-      .thirty-two-by-eighteen {
-        grid-area: auto / auto / span 2 / span 2;
+        min-width: 256px;
+        max-width: 512px;
+        min-height: 288px;
+        max-height: 576px;
       }
 
       /*
@@ -175,6 +215,41 @@
       #image12 {
         grid-area: image12
       } */
+
+      /* This is the media query for when the screen allows for two images side by side. */
+      @media all and (min-width: 1024px) {
+        /* 
+          This styles the grid so that the grid turns into multiple columns for larger screens
+          and 
+        */
+        section {
+          -ms-grid-columns: repeat(auto-fit, minmax(400px, 1fr));
+          grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+        }
+
+        /* 
+          This styles 32x18 images to span 2 rows and 2 columns,
+          sets the width to be between 512 and 1024 px, sets the height to
+          be between 288 and 576 px, and aligns it vertically in the center
+          of its rows.
+        */
+        .thirty-two-by-eighteen {
+          grid-area: auto / auto / span 2 / span 2;
+          min-width: 512px;
+          max-width: 1024px;
+          min-height: 288px;
+          max-height: 576px;
+          align-self: center;
+        }
+      }
+
+      /* This is the media query for when the screen allows for three images side by side. */
+      @media all and (min-width: 1536px) {
+        /* This styles the section to make the width of the section back to normal */
+        section {
+          width: auto;
+        }
+      }
     </style>
   </head>
   <body>
